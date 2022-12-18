@@ -36,6 +36,7 @@ function formSubmitted() {
 	annee.value = "";
 	affiche.value = "";
 	
+	
 	// refresh the html table
 	gm.displayGamesAsATable("Games");
 	
@@ -70,6 +71,7 @@ class Game {
 		this.annee = annee;
 		this.affiche = affiche;
 		
+		
 	}
 }
 
@@ -81,15 +83,17 @@ class GameManager {
 	}
 	
 	addTestData() {
-		var c1 = new Game("Elden Ring", "RPG", "PC - Xbox series - PS5", "From Software", "2022", "https://www.journaldugeek.com/content/uploads/2021/10/template-jdg-2021-10-18t165104-139.jpg");
-  		var c2 = new Game("CyberPunk", "RPG", "PC - Xbox series - PS5", "CD Projekt", "2022", "https://static.bandainamcoent.eu/high/cyberpunk/cyberpunk-2077/00-page-setup/cp2077_game-thumbnail.jpg");
-  		var c3 = new Game("Halo Infinite", "FPS", "PC - Xbox series", "343 Industries", "2021", "https://store-images.s-microsoft.com/image/apps.21536.13727851868390641.c9cc5f66-aff8-406c-af6b-440838730be0.68796bde-cbf5-4eaa-a299-011417041da6");
-  		var c4 = new Game("Warhammer 40k: Darktide", "FPS", "PC", "Fatshark", "2021", "https://cdn.akamai.steamstatic.com/steam/apps/1361210/capsule_616x353.jpg?t=1670979917");
-		
+		var c1 = new Game("Elden Ring", "RPG", "PC - Xbox series - PS5", "From Software", "2022-02-25", "https://www.journaldugeek.com/content/uploads/2021/10/template-jdg-2021-10-18t165104-139.jpg");
+  		var c2 = new Game("CyberPunk", "RPG - FPS", "PC - Xbox series - PS5", "CD Projekt", "2022-12-10", "https://static.bandainamcoent.eu/high/cyberpunk/cyberpunk-2077/00-page-setup/cp2077_game-thumbnail.jpg");
+  		var c3 = new Game("Halo Infinite", "FPS", "PC - Xbox series", "343 Industries", "2021-12-08", "https://store-images.s-microsoft.com/image/apps.21536.13727851868390641.c9cc5f66-aff8-406c-af6b-440838730be0.68796bde-cbf5-4eaa-a299-011417041da6");
+  		var c4 = new Game("Warhammer 40k: Darktide", "FPS", "PC", "Fatshark", "2022-11-30", "https://cdn.akamai.steamstatic.com/steam/apps/1361210/capsule_616x353.jpg?t=1670979917");
+		var c5 = new Game("Dying Light 2", "FPS", "PC - Xbox series - PS5", "Techland", "2022-02-04", "https://pic.clubic.com/v1/images/1771225/raw?fit=smartCrop&width=1200&height=675&hash=f876f6713fc946b3eca1d59e027f780f8d8d41de");
+
 		this.add(c1);
 		this.add(c2);
 		this.add(c3);
 		this.add(c4);
+		this.add(c5);
 		
 		// Let's sort the list of contacts by Name
 		this.sort();
@@ -182,7 +186,7 @@ class GameManager {
 		img.style.height = "100px";
 		*/
 		var headrow = table.insertRow();
-		headrow.innerHTML += "<tr> <th onclick='triagetitre(0)' id='titre'>Titre</th> <th id='genre'>Genre</th> <th>Plateforme</th> <th>Editeur</th> <th>Année</th> <th>Affiche</th> </tr>";
+		headrow.innerHTML += "<tr> <th onclick='triagetitre(0)' id='titre'>Titre</th> <th id='genre'>Genre</th> <th>Plateforme</th> <th>Editeur</th> <th>Année de sortie</th> <th>Affiche</th> </tr>";
 		
           
     	// iterate on the array of users
@@ -197,16 +201,20 @@ class GameManager {
 							+ "<td>" + currentGame.genre + "</td>"
 							+ "<td>" + currentGame.plateforme + "</td>"
 							+ "<td>" + currentGame.editeur + "</td>"
-							+ "<td>" + currentGame.annee + "</td>";
+							+ "<td>" + currentGame.annee + "</td>"
 							
 							
+				
+				
+				
+			var img= document.createElement("img");
+			img.src = currentGame.affiche;
+			img.style.width = "280px";
+			img.style.height = "280px";
+			row.appendChild(img);			
 						
         
-	  var img= document.createElement("img");
-			img.src = currentGame.affiche;
-			img.style.width = "310px";
-			img.style.height = "310px";
-			row.appendChild(img);
+	  
 			
 		var button = document.createElement("button");
 		button.innerHTML = "\ud83d\uddd1";
@@ -215,10 +223,10 @@ class GameManager {
 		button.onclick = function button() {
 			var row = this.parentNode;
 			row.parentNode.removeChild(row);
-			
+
 		}
 				
-
+		
      	});
 		
 		 
