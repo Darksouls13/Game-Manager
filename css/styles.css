@@ -1,0 +1,67 @@
+table {
+    margin-top: 20px;
+  }
+  table, tr, td, th {
+    border: 2px solid;
+    background-color: antiquewhite;
+
+  } 
+  td {
+    padding: 100px;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    font-size: 20px;
+    font-style: trajan-bold;
+  }
+  th {
+    padding: 10px;
+    text-align: center;
+    height: 50px;
+    width: 100px;
+    font-size: 20px;
+    font-style: trajan-bold;
+  }
+  fieldset {
+    padding:10px;
+    border-radius:10px;
+    border: 2px solid;
+    border-color: aliceblue;
+  }
+  img {
+    margin-top: 5px;
+    border: 2px solid;
+    align-items: center;
+  }
+  label {
+    display:inline-block;
+    margin-bottom:10px;
+  }
+  tbody tr:hover td {
+    background:#F2F684; 
+    color:#1BA6B2
+  }
+  input {
+    float:right;
+    margin-right:70px;
+    width:150px;
+  }
+  
+  input:invalid {
+    background-color:pink;
+  }
+  
+  input:valid {
+    background-color:lightgreen;
+  }
+  body {
+    background-color: rgba(148, 147, 147, 0.767);
+  }
+  h1{
+    text-align: center;
+    font-size: 50px;
+    font-style: trajan-bold;
+    color: rgb(255, 255, 255);
+    background-image: url("https://lekiosque.bzh/wp-content/uploads/2021/02/image-jeux-video.jpg;");
+    background-size: 100%;
+  }
