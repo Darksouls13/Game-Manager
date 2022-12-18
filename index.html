@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>A Game Manager</title>
+<link rel="stylesheet" href="./css/styles.css">
+<script src="./js/script.js"></script>
+  <meta charset="utf-8"/>
+</head>
+<body> 
+	<form onsubmit="return formSubmitted();">
+	 <fieldset>
+    <legend>Ajouter un nouveau jeu à la liste</legend>
+		<label>
+			Titre : 
+			<input type="text" id="titre" required>
+		</label>
+		<label>
+			Genre : 
+			<input type="text" id="genre" required>
+		</label>
+		<label>
+			Plateforme : 
+			<input type="text" id="plateforme" required>
+		</label>
+		<label>
+			Editeur : 
+			<input type="text" id="editeur" required>
+		</label>
+		<label>
+			Date de sortie : 
+			<input type="date" id="annee" not-required>
+		</label>
+		<label>
+			Affiche :
+			<input type="text" id="affiche" required>
+		</label>
+		<br>
+		<button>Ajouter un nouveau jeu</button>
+		 </fieldset>
+		 </form>
+		 <br>
+		 <fieldset>
+		<legend>Rechercher un jeu</legend>
+		<label> 
+			<input type="text" id="search" onkeyup = "triage()" not-required>
+		</label>
+
+		<script>
+			function triage(){
+				var input, filter, table, tr, td, i, txtValue;
+				input = document.getElementById("search");
+				filter = input.value.toUpperCase();
+				table = document.getElementById("Games");
+				tr = table.getElementsByTagName("tr");
+
+				for (i = 0; i < tr.length; i++) {
+					td = tr[i].getElementsByTagName("td")[0];
+					if (td) {
+						txtValue = td.textContent || td.innerText;
+						if (txtValue.toUpperCase().indexOf(filter) > -1) {
+							tr[i].style.display = "";
+						} else {
+							tr[i].style.display = "none";
+						}
+					}       
+				}
+			}
+
+		</script>
+		 </fieldset>
+	</form>
+	
+  <h2>Liste des jeux</h2> 
+  <div id="Games"> </div>
+  
+
+	<p><button onclick="emptyList();">Empty</button> 
+	 <button onclick="gm.save();">Save</button> 
+   <button onclick="loadList();">Load</button>
+	</p>
+
+</body>
+</html>
